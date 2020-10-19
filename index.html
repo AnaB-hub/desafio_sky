@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Carousel da Netflix</title>
+    <title>Sky Play</title>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -27,26 +27,14 @@
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-    <script>
-      // $(document).ready(function () {
-      // $.ajax({
-      //   url: "https://sky-frontend.herokuapp.com/movies",
-      //   success: function (data) {
-      //     const carrossel = data[0].items;
-      //     console.log(carrossel);
-      //     const data2 = data[2].movies;
-      //     console.log(data2);
-      //   },
-      // });
-      // });
-    </script>
   </head>
 
   <body>
     <div class="contain">
+
       <!-- menu -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">SKY</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -69,42 +57,17 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
             </li>
           </ul>
-          <!-- <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form> -->
         </div>
       </nav>
+
+      <!-- menu filme, serie e canais -->
+      <div>
+        <h2>Filme, série e canais</h2>
+      </div>
 
       <!-- carrossel -->
       <div
@@ -127,6 +90,7 @@
 
               var carrosselImagens = "";
               var qtdeImagens = "";
+
               var movies_ = ``;
 
               for (let i = 0; i < carrossel.length; i++) {
@@ -173,6 +137,7 @@
               for (let x = 0; x < movies.length; x++) {
                 var title = (movies[x].title);
                 var img = movies[x].images[0].url;
+
                 movies_ += `
                   <div class="gui-card">
                     <div class="gui-card__media">
@@ -221,7 +186,7 @@
 
       <!-- filmes -->
       <div class="slider">
-        <h3>Ação</h3>
+        <h3>Filmes</h3>
         <span
           onmouseover="scrollEsquerda()"
           onmouseout="clearScroll()"
@@ -229,7 +194,6 @@
         >
           <i class="fa fa-caret-left" aria-hidden="true"></i>
         </span>
-
         <div id="scroller" class="row">
           <div class="row__inner">
             <div id="movies"></div>
@@ -241,8 +205,9 @@
           >
             <i class="fa fa-caret-right" aria-hidden="true"></i>
           </span>
+        </div>
       </div>
-        
-    </div>
+    <!-- fim dos filmes -->
+  
   </body>
 </html>
