@@ -26,25 +26,23 @@
     <script src="js/index.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script>
+      // $(document).ready(function () {
+      // $.ajax({
+      //   url: "https://sky-frontend.herokuapp.com/movies",
+      //   success: function (data) {
+      //     const carrossel = data[0].items;
+      //     console.log(carrossel);
+      //     const data2 = data[2].movies;
+      //     console.log(data2);
+      //   },
+      // });
+      // });
+    </script>
   </head>
 
   <body>
-
-    <script>
-      $(document).ready(function() {
-        $.ajax({
-          url: "https://sky-frontend.herokuapp.com/movies",
-          success: function (data) {
-            const carrossel = data[0].items;
-            console.log(carrossel);
-            const data2 = data[2].movies;
-            console.log(data2)
-          },
-        });
-      });
-      
-    </script>
-
     <div class="contain">
       <!-- menu -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -108,114 +106,98 @@
         </div>
       </nav>
 
-      <!-- primeiro -->
-      <!-- <div
-        id="carouselExampleControls"
-        class="carousel slide"
-        data-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              style="width: 100px; height: 100px"
-              src="lider.jpeg"
-              class="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              style="width: 100px; height: 100px"
-              src="novo lider.jpg"
-              class="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              style="width: 100px; height: 100px"
-              src="lider.jpeg"
-              class="d-block w-100"
-              alt="..."
-            />
-          </div>
-        </div>
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div> -->
-
-    </br>
-      <!-- segundo -->
+      <!-- carrossel -->
       <div
         id="carouselExampleCaptions"
         class="carousel slide"
         data-ride="carousel"
       >
-        <ol class="carousel-indicators">
-          <li
-            data-target="#carouselExampleCaptions"
-            data-slide-to="0"
-            class="active"
-          ></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              style="width: 100px; height: 100px"
-              src="lider.jpeg"
-              class="d-block w-100"
-              alt="..."
-            />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
-          </div>
-          <!-- <div class="carousel-item">
-            <img
-              style="width: 100px; height: 100px"
-              src="novo lider.jpg"
-              class="d-block w-100"
-              alt="..."
-            />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              style="width: 100px; height: 100px"
-              src="lider.jpeg"
-              class="d-block w-100"
-              alt="..."
-            />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </div>
-          </div> -->
-        </div>
+        <ol id="qtde" class="carousel-indicators"></ol>
+
+        <div id="carrossel_" class="carousel-inner"></div>
+
+        <script>
+          $.ajax({
+            url: "https://sky-frontend.herokuapp.com/movies",
+            success: function (data) {
+              const carrossel = data[0].items;
+
+              const movies = data[2].movies;
+              console.log("movies", movies);
+
+              var carrosselImagens = "";
+              var qtdeImagens = "";
+              var movies_ = ``;
+
+              for (let i = 0; i < carrossel.length; i++) {
+                const element = carrossel[i];
+
+                var img = element.images[0].url;
+                var width = element.images[0].width;
+                var height = element.images[0].height - 1000;
+
+                if (i == 0) {
+                  carrosselImagens = `
+                  <div class="carousel-item active">
+                    <img
+                      style="width: ${width}, height: ${height}"
+                      src=${img}
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                  </div>`;
+
+                  qtdeImagens = `
+                  <li
+                    data-target="#carouselExampleCaptions"
+                    data-slide-to="0"
+                    class="active"
+                  ></li>`;
+
+                  
+                } else {
+                  carrosselImagens += `
+                  <div class="carousel-item">
+                    <img
+                    style="width: ${width}, height: ${height}"
+                      src=${img}
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                  </div>`;
+
+                  qtdeImagens += `<li data-target="#carouselExampleCaptions" data-slide-to="${i}"></li>`;
+                }
+              }
+              
+              for (let x = 0; x < movies.length; x++) {
+                var title = (movies[x].title);
+                var img = movies[x].images[0].url;
+                movies_ += `
+                  <div class="gui-card">
+                    <div class="gui-card__media">
+                      <img
+                        class="gui-card__img"
+                        src="${img}"
+                        alt="${title}"
+                      />
+                    </div>
+                    <div class="gui-card__details">
+                      <div class="gui-card__title">${title}</div>
+                    </div>
+                  </div>`;
+              }
+
+              document.getElementById(
+                "carrossel_"
+              ).innerHTML = carrosselImagens;
+              document.getElementById("qtde").innerHTML = qtdeImagens;
+              document.getElementById("movies").innerHTML = movies_;
+            },
+          });
+        </script>
+
+        <!-- botoes de movimentação -->
         <a
           class="carousel-control-prev"
           href="#carouselExampleCaptions"
@@ -223,7 +205,7 @@
           data-slide="prev"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+          <span class="sr-only">Anterior</span>
         </a>
         <a
           class="carousel-control-next"
@@ -232,9 +214,10 @@
           data-slide="next"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span class="sr-only">Próximo</span>
         </a>
       </div>
+      <!-- fim carrossel -->
 
       <!-- filmes -->
       <div class="slider">
@@ -249,301 +232,17 @@
 
         <div id="scroller" class="row">
           <div class="row__inner">
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
-
-            <div class="gui-card">
-              <div class="gui-card__media">
-                <img
-                  class="gui-card__img"
-                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
-                  alt=""
-                />
-              </div>
-              <div class="gui-card__details">
-                <div class="gui-card__title">Assassin’s Creed</div>
-              </div>
-            </div>
+            <div id="movies"></div>
           </div>
-        </div>
-        <span
-          onmouseover="scrollDireita()"
-          onmouseout="clearScroll()"
-          class="handle handleNext active"
-        >
-          <i class="fa fa-caret-right" aria-hidden="true"></i>
-        </span>
+          <span
+            onmouseover="scrollDireita()"
+            onmouseout="clearScroll()"
+            class="handle handleNext active"
+          >
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+          </span>
       </div>
+        
     </div>
   </body>
 </html>
