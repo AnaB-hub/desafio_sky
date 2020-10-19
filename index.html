@@ -24,9 +24,27 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   </head>
 
   <body>
+
+    <script>
+      $(document).ready(function() {
+        $.ajax({
+          url: "https://sky-frontend.herokuapp.com/movies",
+          success: function (data) {
+            const carrossel = data[0].items;
+            console.log(carrossel);
+            const data2 = data[2].movies;
+            console.log(data2)
+          },
+        });
+      });
+      
+    </script>
+
     <div class="contain">
       <!-- menu -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -76,7 +94,7 @@
               <a class="nav-link disabled" href="#">Disabled</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
+          <!-- <form class="form-inline my-2 my-lg-0">
             <input
               class="form-control mr-sm-2"
               type="search"
@@ -86,7 +104,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
               Search
             </button>
-          </form>
+          </form> -->
         </div>
       </nav>
 
@@ -171,7 +189,7 @@
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </div>
           </div>
-          <div class="carousel-item">
+          <!-- <div class="carousel-item">
             <img
               style="width: 100px; height: 100px"
               src="novo lider.jpg"
@@ -196,7 +214,7 @@
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               </p>
             </div>
-          </div>
+          </div> -->
         </div>
         <a
           class="carousel-control-prev"
@@ -231,6 +249,45 @@
 
         <div id="scroller" class="row">
           <div class="row__inner">
+            <div class="gui-card">
+              <div class="gui-card__media">
+                <img
+                  class="gui-card__img"
+                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
+                  alt=""
+                />
+              </div>
+              <div class="gui-card__details">
+                <div class="gui-card__title">Assassin’s Creed</div>
+              </div>
+            </div>
+
+            <div class="gui-card">
+              <div class="gui-card__media">
+                <img
+                  class="gui-card__img"
+                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
+                  alt=""
+                />
+              </div>
+              <div class="gui-card__details">
+                <div class="gui-card__title">Assassin’s Creed</div>
+              </div>
+            </div>
+
+            <div class="gui-card">
+              <div class="gui-card__media">
+                <img
+                  class="gui-card__img"
+                  src="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"
+                  alt=""
+                />
+              </div>
+              <div class="gui-card__details">
+                <div class="gui-card__title">Assassin’s Creed</div>
+              </div>
+            </div>
+
             <div class="gui-card">
               <div class="gui-card__media">
                 <img
