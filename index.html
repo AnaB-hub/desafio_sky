@@ -104,6 +104,7 @@
               var qtdeImagens = "";
 
               var movies_ = ``;
+              var moviesaasa = ``;
 
               for (let i = 0; i < carrossel.length; i++) {
                 const element = carrossel[i];
@@ -163,6 +164,19 @@
                       <div class="gui-card__title">${title}</div>
                     </div>
                   </div>`;
+
+                  moviesaasa += `<div class="gui-card">
+                    <div class="gui-card__media">
+                      <img
+                        class="gui-card__img"
+                        src="${img}"
+                        alt="${title}"
+                      />
+                    </div>
+                    <div class="gui-card__details">
+                      <div class="gui-card__title">${title}</div>
+                    </div>
+                  </div>`;
               }
 
               document.getElementById(
@@ -170,6 +184,8 @@
               ).innerHTML = carrosselImagens;
               document.getElementById("qtde").innerHTML = qtdeImagens;
               document.getElementById("movies").innerHTML = movies_;
+              document.getElementById("moviesaasa").innerHTML = moviesaasa;
+              
             },
           });
         </script>
@@ -206,12 +222,12 @@
         >
           <i class="fa fa-caret-left" aria-hidden="true"></i>
         </span>
-        <div id="scroller" class="row">
+        <div id="scroller_" class="row">
           <div class="row__inner">
             <div id="movies"></div>
           </div>
           <span
-            onmouseover="scrollDireita()"
+            onmouseover="scrollDireita(true)"
             onmouseout="clearScroll()"
             class="handle handleNext active"
           >
@@ -220,6 +236,32 @@
         </div>
       </div>
     <!-- fim dos filmes -->
+
+    <!-- filmes -->
+    <div class="slider">
+      <h3>Filmes</h3>
+      <span
+        onmouseover="scrollEsquerda()"
+        onmouseout="clearScroll()"
+        class="handle handlePrev active"
+      >
+        <i class="fa fa-caret-left" aria-hidden="true"></i>
+      </span>
+      <div id="scroller" class="row">
+        <div class="row__inner">
+          <div id="moviesaasa"></div>
+        </div>
+        <span
+          onmouseover="scrollDireita()"
+          onmouseout="clearScroll()"
+          class="handle handleNext active"
+        >
+          <i class="fa fa-caret-right" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+  <!-- fim dos filmes -->
+    
   
   </body>
 </html>

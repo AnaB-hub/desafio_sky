@@ -1,8 +1,12 @@
 var intervalo;
 
-function scrollDireita() {
+function scrollDireita(a) {
   intervalo = setInterval(function () {
-    document.getElementById("scroller").scrollLeft += 1;
+    if (a) {
+      document.getElementById("scroller_").scrollLeft += 1;
+    } else {
+      document.getElementById("scroller").scrollLeft += 1;
+    }
   }, 5);
 }
 
