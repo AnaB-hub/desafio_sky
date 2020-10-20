@@ -25,17 +25,20 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/index.js"></script>
 
-    <link rel="stylesheet" href="css/footer-with-button-logo.css">
+    <link rel="stylesheet" href="css/footer-with-button-logo.css" />
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
   </head>
 
   <body>
     <div class="contain">
-
       <!-- menu -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a style="color:#ff3333; font-weight: bold; font-size: 30px;" class="navbar-brand" href="#">SKY</a>
+        <a
+          style="color: #ff3333; font-weight: bold; font-size: 30px"
+          class="navbar-brand"
+          href="#"
+          >SKY</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -48,36 +51,34 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse menu_items" id="navbarSupportedContent">
+        <div
+          class="collapse navbar-collapse menu_items"
+          id="navbarSupportedContent"
+        >
           <div class="col-sm-2">
-            <img class="icons" src="assets/people.svg" alt="">
-            
-            <img class="icons" src="assets/bolinha.svg" alt="">
-          
-            <img class="icons" src="assets/A.svg" alt="">
-          
-            <img class="icons" src="assets/A.svg" alt="">
+            <img class="icons" src="assets/people.svg" alt="" />
+
+            <img class="icons" src="assets/bolinha.svg" alt="" />
+
+            <img class="icons" src="assets/A.svg" alt="" />
+
+            <img class="icons" src="assets/A.svg" alt="" />
           </div>
 
           <div class="col-sm-2">
-            <img class="icons" src="assets/play.svg" alt="">
+            <img class="icons" src="assets/play.svg" alt="" />
             <label>Play</label>
           </div>
-          
+
           <div class="col-sm-2">
-            <img class="icons" src="assets//user.svg" alt="">
+            <img class="icons" src="assets//user.svg" alt="" />
             <label>Entrar</label>
-          
-            <img class="icons" src="assets/lupa.svg" alt="">
+
+            <img class="icons" src="assets/lupa.svg" alt="" />
           </div>
         </div>
       </nav>
       <!-- fim menu -->
-
-      <!-- menu filme, serie e canais -->
-      <div>
-        <h2>Filme, série e canais</h2>
-      </div>
 
       <!-- carrossel -->
       <div
@@ -101,7 +102,9 @@
               var qtdeImagens = "";
 
               var movies_ = ``;
-              var moviesaasa = ``;
+              var movies_acao = ``;
+              var movies_aventura = ``;
+              var movies_infantil = ``;
 
               for (let i = 0; i < carrossel.length; i++) {
                 const element = carrossel[i];
@@ -114,7 +117,7 @@
                   carrosselImagens = `
                   <div class="carousel-item active">
                     <img
-                      style="width: ${width}, height: ${height}"
+                      style="width: ${width}, height: ${height} !important"
                       src=${img}
                       class="d-block w-100"
                       alt="..."
@@ -127,8 +130,6 @@
                     data-slide-to="0"
                     class="active"
                   ></li>`;
-
-                  
                 } else {
                   carrosselImagens += `
                   <div class="carousel-item">
@@ -143,46 +144,59 @@
                   qtdeImagens += `<li data-target="#carouselExampleCaptions" data-slide-to="${i}"></li>`;
                 }
               }
-              
+
               for (let x = 0; x < movies.length; x++) {
-                var title = (movies[x].title);
+                var title = movies[x].title;
                 var img = movies[x].images[0].url;
 
-                movies_ += `
-                  <div class="gui-card">
-                    <div class="gui-card__media">
-                      <img
-                        class="gui-card__img"
-                        src="${img}"
-                        alt="${title}"
-                      />
-                    </div>
-                    <div class="gui-card__details">
-                      <div class="gui-card__title">${title}</div>
-                    </div>
-                  </div>`;
+                var codigo = `
+                    <div class="gui-card">
+                      <div class="gui-card__media">
+                        <img
+                          class="gui-card__img"
+                          src="${img}"
+                          alt="${title}"
+                        />
+                      </div>
+                      <div class="gui-card__details">
+                        <div class="gui-card__title">${title}</div>
+                      </div>
+                    </div>`;
 
-                  moviesaasa += `<div class="gui-card">
-                    <div class="gui-card__media">
-                      <img
-                        class="gui-card__img"
-                        src="${img}"
-                        alt="${title}"
-                      />
-                    </div>
-                    <div class="gui-card__details">
-                      <div class="gui-card__title">${title}</div>
-                    </div>
-                  </div>`;
+                // Organiza os filmes em categorias
+                if (movies[x].categories.toUpperCase().includes("AÇÃO")) {
+                  movies_acao += codigo;
+                }
+
+                if (movies[x].categories.toUpperCase().includes("AVENTURA")) {
+                  movies_aventura += codigo;
+                }
+
+                if (movies[x].categories.toUpperCase().includes("INFANTIL")) {
+                  movies_infantil += codigo;
+                }
+                // Fim Organiza os filmes em categorias
               }
 
               document.getElementById(
                 "carrossel_"
               ).innerHTML = carrosselImagens;
               document.getElementById("qtde").innerHTML = qtdeImagens;
-              document.getElementById("movies").innerHTML = movies_;
-              document.getElementById("moviesaasa").innerHTML = moviesaasa;
-              
+              movies_acao
+                ? (document.getElementById(
+                    "movies_acao"
+                  ).innerHTML = movies_acao)
+                : null;
+              movies_aventura
+                ? (document.getElementById(
+                    "movies_aventura"
+                  ).innerHTML = movies_aventura)
+                : null;
+              movies_infantil
+                ? (document.getElementById(
+                    "movies_infantil"
+                  ).innerHTML = movies_infantil)
+                : null;
             },
           });
         </script>
@@ -210,21 +224,23 @@
       <!-- fim carrossel -->
 
       <!-- filmes -->
+
+      <!-- ações -->
       <div class="slider">
-        <h3>Filmes</h3>
+        <h3>Ações</h3>
         <span
-          onmouseover="scrollEsquerda()"
+          onmouseover="scrollEsquerda('acao')"
           onmouseout="clearScroll()"
           class="handle handlePrev active"
         >
           <i class="fa fa-caret-left" aria-hidden="true"></i>
         </span>
-        <div id="scroller_" class="row">
+        <div id="scroller_acao" class="row">
           <div class="row__inner">
-            <div id="movies"></div>
+            <div id="movies_acao"></div>
           </div>
           <span
-            onmouseover="scrollDireita(true)"
+            onmouseover="scrollDireita('acao')"
             onmouseout="clearScroll()"
             class="handle handleNext active"
           >
@@ -232,100 +248,122 @@
           </span>
         </div>
       </div>
-    <!-- fim dos filmes -->
 
-    <!-- filmes -->
-    <div class="slider">
-      <h3>Filmes</h3>
-      <span
-        onmouseover="scrollEsquerda()"
-        onmouseout="clearScroll()"
-        class="handle handlePrev active"
-      >
-        <i class="fa fa-caret-left" aria-hidden="true"></i>
-      </span>
-      <div id="scroller" class="row">
-        <div class="row__inner">
-          <div id="moviesaasa"></div>
-        </div>
+      <!-- aventura -->
+      <div class="slider">
+        <h3>Aventura</h3>
         <span
-          onmouseover="scrollDireita()"
+          onmouseover="scrollEsquerda('aventura')"
           onmouseout="clearScroll()"
-          class="handle handleNext active"
+          class="handle handlePrev active"
         >
-          <i class="fa fa-caret-right" aria-hidden="true"></i>
+          <i class="fa fa-caret-left" aria-hidden="true"></i>
         </span>
+        <div id="scroller_aventura" class="row">
+          <div class="row__inner">
+            <div id="movies_aventura"></div>
+          </div>
+          <span
+            onmouseover="scrollDireita('aventura')"
+            onmouseout="clearScroll()"
+            class="handle handleNext active"
+          >
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- INFANTIL -->
+      <div class="slider">
+        <h3>Infantil</h3>
+        <span
+          onmouseover="scrollEsquerda('infantil')"
+          onmouseout="clearScroll()"
+          class="handle handlePrev active"
+        >
+          <i class="fa fa-caret-left" aria-hidden="true"></i>
+        </span>
+        <div id="scroller_infantil" class="row">
+          <div class="row__inner">
+            <div id="movies_infantil"></div>
+          </div>
+          <span
+            onmouseover="scrollDireita('infantil')"
+            onmouseout="clearScroll()"
+            class="handle handleNext active"
+          >
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+          </span>
+        </div>
       </div>
     </div>
-  <!-- fim dos filmes -->
+    <!-- fim dos filmes -->
 
-  <!-- rodapé -->
-  <footer id="myFooter">
-    <div class="container">
-      <div style="display: flex; justify-content: space-between;"
-        class="row">
-        <a class="navbar-brand logo_rodape" href="#">SKY</a>
-        <div class="rodape_icons">
-          <img class="icons" src="assets/facebook.svg" alt="">
-          <img class="icons" src="assets/twitter.svg" alt="">
-          <img class="icons" src="assets/youtube.svg" alt="">
-          <img class="icons" src="assets/instagram.svg" alt="">
+    <!-- rodapé -->
+    <footer id="myFooter">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between" class="row">
+          <a class="navbar-brand logo_rodape" href="#">SKY</a>
+          <div class="rodape_icons">
+            <img class="icons" src="assets/facebook.svg" alt="" />
+            <img class="icons" src="assets/twitter.svg" alt="" />
+            <img class="icons" src="assets/youtube.svg" alt="" />
+            <img class="icons" src="assets/instagram.svg" alt="" />
+          </div>
         </div>
-      </div>
-      <hr>
+        <hr />
         <div class="row">
           <div class="col-sm-1">
-            <img style="height: 65px;" src="assets/red.svg" alt="">
+            <img style="height: 65px" src="assets/red.svg" alt="" />
           </div>
           <div class="col-sm-1"></div>
           <div class="col-sm-3">
             <strong>Baixe no seu celular o app</strong>
-            <br>
+            <br />
             <strong>Minha SKY e divirta-se</strong>
-            <br><br>
+            <br /><br />
 
-            <div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center">
               <label>Disponível na <strong>Apple Store</strong></label>
-              <img class="icons_download" src="assets/apple.svg" alt="">
+              <img class="icons_download" src="assets/apple.svg" alt="" />
             </div>
-            <br>
+            <br />
 
-            <div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center">
               <label>Disponível na <strong>Google Play</strong></label>
-              <img class="icons_download" src="assets/play.svg" alt="">
+              <img class="icons_download" src="assets/play.svg" alt="" />
             </div>
           </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-2">
-              <strong>Sobre</strong>
-              <br>
-              <a>Nossa história</a><br>
-              <a>Imprensa</a><br>
-              <a>Prêmio conquistado</a><br>
-              <a>Credenciamento</a><br>
-              <a>Trabalhe com a gente</a><br>
-              <a>Promoção</a><br>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-2">
+            <strong>Sobre</strong>
+            <br />
+            <a>Nossa história</a><br />
+            <a>Imprensa</a><br />
+            <a>Prêmio conquistado</a><br />
+            <a>Credenciamento</a><br />
+            <a>Trabalhe com a gente</a><br />
+            <a>Promoção</a><br />
 
-              <br><br>
-              <strong>Ajuda</strong><br>
-              <a>Central de Ajuda</a><br>
-              <a>Manuais</a><br>
-            </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-2">
-              <strong>Nossas responsabilidades</strong>
-              <a>Conselho aos usuários</a><br>
-              <a>Pesquisa Anatel</a><br>
-              <a>Relatórios de transparência</a><br>
-              <a>Responsabilidade Social</a><br>
-              <a>Acessibilidade</a><br>
-              <br><br>
-              <strong>SKY Empresas</strong>
-            </div>
+            <br /><br />
+            <strong>Ajuda</strong><br />
+            <a>Central de Ajuda</a><br />
+            <a>Manuais</a><br />
+          </div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-2">
+            <strong>Nossas responsabilidades</strong>
+            <a>Conselho aos usuários</a><br />
+            <a>Pesquisa Anatel</a><br />
+            <a>Relatórios de transparência</a><br />
+            <a>Responsabilidade Social</a><br />
+            <a>Acessibilidade</a><br />
+            <br /><br />
+            <strong>SKY Empresas</strong>
+          </div>
         </div>
-    </div>
-  </footer>
-  <!-- fim rodapé -->
-  
+      </div>
+    </footer>
+    <!-- fim rodapé -->
   </body>
 </html>

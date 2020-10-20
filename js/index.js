@@ -1,18 +1,16 @@
 var intervalo;
 
-function scrollDireita(a) {
+function scrollDireita(classe) {
   intervalo = setInterval(function () {
-    if (a) {
-      document.getElementById("scroller_").scrollLeft += 1;
-    } else {
-      document.getElementById("scroller").scrollLeft += 1;
-    }
+    var class_select = "scroller_" + classe;
+    document.getElementById(class_select).scrollLeft += 1;
   }, 5);
 }
 
-function scrollEsquerda() {
+function scrollEsquerda(classe) {
   intervalo = setInterval(function () {
-    document.getElementById("scroller").scrollLeft -= 1;
+    var class_select = "scroller_" + classe;
+    document.getElementById(class_select).scrollLeft -= 1;
   }, 5);
 }
 
