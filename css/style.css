@@ -17,9 +17,9 @@ html {
   flex-direction: row;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  /* align-items: center; */
   width: 100%;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -28,11 +28,13 @@ h1,
 p {
   text-align: center;
 }
+
 p {
   width: 100%;
   max-width: 500px;
   margin: auto;
 }
+
 a:link,
 a:hover,
 a:active,
@@ -42,10 +44,12 @@ a:visited {
   color: #95a5a6;
   text-decoration: none;
 }
+
 a:hover {
   color: #7f8c8d;
   text-decoration: underline;
 }
+
 .contain {
   width: 100%;
 }
@@ -107,6 +111,7 @@ a:hover {
 .row {
   overflow: hidden;
 }
+
 .row__inner {
   -webkit-transition: 450ms -webkit-transform;
   transition: 450ms -webkit-transform;
@@ -131,12 +136,14 @@ a:hover {
   -webkit-transform-origin: center left;
   transform-origin: center left;
 }
+
 .gui-card__img {
   width: 250px;
   height: 140.625px;
   -o-object-fit: cover;
   object-fit: cover;
 }
+
 .gui-card__details {
   position: absolute;
   bottom: 0;
@@ -158,6 +165,7 @@ a:hover {
   -webkit-transition: 450ms opacity;
   transition: 450ms opacity;
 }
+
 .gui-card__details:after,
 .gui-card__details:before {
   content: "";
@@ -166,6 +174,7 @@ a:hover {
   left: 50%;
   display: #000;
 }
+
 .gui-card__details:after {
   margin-top: -25px;
   margin-left: -25px;
@@ -178,6 +187,7 @@ a:hover {
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
+
 .gui-card__details:before {
   content: "▶";
   left: 0;
@@ -188,26 +198,32 @@ a:hover {
   text-align: center;
   z-index: 2;
 }
+
 .gui-card:hover .gui-card__details {
   opacity: 1;
 }
+
 .gui-card__title {
   position: absolute;
   bottom: 0;
   padding: 10px;
 }
+
 .row__inner:hover {
   -webkit-transform: translate3d(-62.5px, 0, 0);
   transform: translate3d(-62.5px, 0, 0);
 }
+
 .row__inner:hover .gui-card {
   opacity: 0.3;
 }
+
 .row__inner:hover .gui-card:hover {
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
   opacity: 1;
 }
+
 .gui-card:hover ~ .gui-card {
   -webkit-transform: translate3d(125px, 0, 0);
   transform: translate3d(125px, 0, 0);

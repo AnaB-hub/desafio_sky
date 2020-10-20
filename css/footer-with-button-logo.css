@@ -1,6 +1,6 @@
 #myFooter {
   background-color: #f8f9fa !important;
-  color: #000;
+  color: #535050;
 }
 
 #myFooter .navbar-brand {
@@ -28,7 +28,7 @@
 }
 
 #myFooter a {
-  color: #000;
+  color: #535050;
   text-decoration: none;
 }
 
@@ -68,9 +68,6 @@
     text-align: center;
   }
 }
-
-/* CSS utilizado para posicionar o rodapé no final da página. */
-/* Você pode remover isso. */
 
 html {
   height: 100%;
