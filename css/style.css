@@ -212,26 +212,14 @@ a:hover {
   -webkit-transform: translate3d(125px, 0, 0);
   transform: translate3d(125px, 0, 0);
 }
-@media (min-width: 992px) {
-  .navbar li {
-    color: black;
-    font-weight: bold;
-    margin-left: 1em;
-    margin-right: 1em;
-  }
-
-  .navbar li:last-of-type {
-    margin-left: 32em;
-  }
-
-  .navbar li + li {
-    margin-left: 4em;
-  }
-}
 
 .menu_items {
   display: flex;
   justify-content: space-around;
   color: #000;
   font-weight: bold;
+}
+
+.icons {
+  height: 23px;
 }

@@ -1,0 +1,118 @@
+#myFooter {
+  background-color: #f8f9fa !important;
+  color: #000;
+}
+
+#myFooter .navbar-brand {
+  margin-top: 45px;
+  height: 65px;
+}
+
+#myFooter ul {
+  list-style-type: none;
+  padding-left: 0;
+  line-height: 1.7;
+}
+
+#myFooter h5 {
+  font-size: 18px;
+  color: #535050;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+#myFooter h2 a {
+  font-size: 50px;
+  text-align: center;
+  color: #535050;
+}
+
+#myFooter a {
+  color: #000;
+  text-decoration: none;
+}
+
+#myFooter a:hover,
+#myFooter a:focus {
+  text-decoration: none;
+  color: #535050;
+}
+
+#myFooter .social-networks {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 16px;
+}
+
+#myFooter .social-networks a {
+  font-size: 32px;
+  color: #f9f9f9;
+  padding: 10px;
+  transition: 0.2s;
+}
+
+#myFooter .btn {
+  color: white;
+  background-color: #d84b6b;
+  border-radius: 20px;
+  border: none;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  line-height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  #myFooter {
+    text-align: center;
+  }
+}
+
+/* CSS utilizado para posicionar o rodapé no final da página. */
+/* Você pode remover isso. */
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+  -webkit-flex: 1 0 auto;
+  min-height: 200px;
+}
+
+#myFooter {
+  flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  margin-top: 50px;
+}
+
+.rodape_icons {
+  margin-top: 53px;
+}
+
+.rodape_icons img {
+  height: 30px;
+  margin-left: 10px;
+}
+
+.logo_rodape {
+  color: #4d4b4b !important;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.icons_download {
+  height: 20px;
+  margin-bottom: 12px;
+  margin-left: 5px;
+}

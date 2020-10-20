@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/index.js"></script>
 
+    <link rel="stylesheet" href="css/footer-with-button-logo.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
   </head>
@@ -34,7 +35,7 @@
 
       <!-- menu -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a style="color:#ff3333; font-weight: bold;" class="navbar-brand" href="#">SKY</a>
+        <a style="color:#ff3333; font-weight: bold; font-size: 30px;" class="navbar-brand" href="#">SKY</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -49,25 +50,25 @@
 
         <div class="collapse navbar-collapse menu_items" id="navbarSupportedContent">
           <div class="col-sm-2">
-            <img style="height: 15px" src="assets/people.svg" alt="">
+            <img class="icons" src="assets/people.svg" alt="">
             
-              <img style="height: 15px" src="assets/bolinha.svg" alt="">
-            
-              <img style="height: 15px" src="assets/A.svg" alt="">
-            
-              <img style="height: 15px" src="assets/A.svg" alt="">
+            <img class="icons" src="assets/bolinha.svg" alt="">
+          
+            <img class="icons" src="assets/A.svg" alt="">
+          
+            <img class="icons" src="assets/A.svg" alt="">
           </div>
 
           <div class="col-sm-2">
-            <img style="height: 15px" src="assets/play.svg" alt="">
+            <img class="icons" src="assets/play.svg" alt="">
             <label>Play</label>
           </div>
           
           <div class="col-sm-2">
-            <img style="height: 15px" src="assets//user.svg" alt="">
+            <img class="icons" src="assets//user.svg" alt="">
             <label>Entrar</label>
           
-            <img style="height: 15px" src="assets/lupa.svg" alt="">
+            <img class="icons" src="assets/lupa.svg" alt="">
           </div>
         </div>
       </nav>
@@ -256,7 +257,74 @@
       </div>
     </div>
   <!-- fim dos filmes -->
-    
+
+  <!-- rodapé -->
+  <footer id="myFooter">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between;"
+        class="row">
+        <a class="navbar-brand logo_rodape" href="#">SKY</a>
+        <div class="rodape_icons">
+          <img class="icons" src="assets/facebook.svg" alt="">
+          <img class="icons" src="assets/twitter.svg" alt="">
+          <img class="icons" src="assets/youtube.svg" alt="">
+          <img class="icons" src="assets/instagram.svg" alt="">
+        </div>
+      </div>
+      <hr>
+        <div class="row">
+          <div class="col-sm-1">
+            <img style="height: 65px;" src="assets/red.svg" alt="">
+          </div>
+          <div class="col-sm-1"></div>
+           <div class="col-sm-3">
+              <strong>Baixe no seu celular o app</strong>
+              <br>
+              <strong>Minha SKY e divirta-se</strong>
+              <br><br>
+
+              <div style="display: flex; align-items: center;">
+                <label>Disponível na <strong>Apple Store</strong></label>
+                <img class="icons_download" src="assets/apple.svg" alt="">
+              </div>
+              <br>
+
+              <div style="display: flex; align-items: center;">
+                <label>Disponível na <strong>Google Play</strong></label>
+                <img class="icons_download" src="assets/play.svg" alt="">
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+              <strong>Sobre</strong>
+              <br>
+              <label>Nossa história</label>
+              <label>Imprensa</label>
+              <label>Prêmio conquistado</label>
+              <label>Credenciamento</label>
+              <label>Trabalhe com a gente</label>
+              <label>Promoção</label>
+
+              <br><br>
+              <strong>Ajuda</strong>
+              <label>Central de Ajuda</label>
+              <label>Manuais</label>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <strong>Nossas responsabilidades</strong>
+                <label> Conselho aos usuários</label>
+                <label> Pesquisa Anatel</label>
+                <label> Relatórios de transparência</label>
+                <label> Responsabilidade Social</label>
+                <label> Acessibilidade</label>
+                <br><br>
+                <strong>SKY Empresas</strong>
+            </div>
+        </div>
+    </div>
+  </footer>
+  <!-- fim rodapé -->
   
   </body>
 </html>
