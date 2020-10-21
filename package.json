@@ -1,0 +1,29 @@
+{
+  "name": "desafio_",
+  "version": "1.0.0",
+  "description": "Repositório criado para armazenar os códigos gerados durante o desafio front-end - recriando a interface do Sky Play",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnaB-hub/desafio_sky.git"
+  },
+  "author": "Ana Beatriz Garcia",
+  "license": "ISC",
+  "homepage": "https://github.com/AnaB-hub/desafio_sky#readme",
+  "devDependencies": {
+    "del": "^2.0.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "run-sequence": "^2.2.1"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  }
+}

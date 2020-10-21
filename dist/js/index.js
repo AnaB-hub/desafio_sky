@@ -1,0 +1,1 @@
+var intervalo;function scrollDireita(l){intervalo=setInterval(function(){var e="scroller_"+l;document.getElementById(e).scrollLeft+=1},5)}function scrollEsquerda(l){intervalo=setInterval(function(){var e="scroller_"+l;document.getElementById(e).scrollLeft-=1},5)}function clearScroll(){clearInterval(intervalo)}
