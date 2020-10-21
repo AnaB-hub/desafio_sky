@@ -111,13 +111,13 @@
 
                 var img = element.images[0].url;
                 var width = element.images[0].width;
-                var height = element.images[0].height - 1000;
+                var height = element.images[0].height;
 
                 if (i == 0) {
                   carrosselImagens = `
                   <div class="carousel-item active">
                     <img
-                      style="width: ${width}, height: ${height} !important"
+                      style="width: ${width}px, height: ${height}px"
                       src=${img}
                       class="d-block w-100"
                       alt="..."
