@@ -4,6 +4,7 @@ Repositório criado para armazenar os códigos gerados durante o desafio front-e
 
 ## Subir a aplicação
 
+- Clone o repositório: `git clone git@github.com:AnaB-hub/desafio_sky.git`;
 - Para exibir o sistema, dê duplo clique no arquivo `index.html`. O arquivo index será apresentado em seu navegador;
 - Para minimizar os arquivos de CSS e JS, é necessário ter instalado o Gulp em sua máquina de forma global: `npm install --global gulp-cli`. Após a instalação, entre na pasta do projeto, abra um terminal de sua escolhar e digite o camando `gulp`. Pronto, o Gulp irá minimizar os arquivos para você.
 
