@@ -1,13 +1,19 @@
-# desafio_sky
+# DESAFIO SKY PLAY
 
 Repositório criado para armazenar os códigos gerados durante o desafio front-end - recriando a interface do Sky Play
 
+## Subir a aplicação
+
+- Para exibir o sistema, dê duplo clique no arquivo `index.html`. O arquivo index será apresentado em seu navegador.
+
 ## Tecnologias
 
-- HTML
-- CSS
-- Javascript
-- Jquery
+- HTML;
+- CSS;
+- Bootstrap;
+- FlexBox;
+- Javascript;
+- Jquery;
 - Git e Git Flow
 
 ## Créditos
